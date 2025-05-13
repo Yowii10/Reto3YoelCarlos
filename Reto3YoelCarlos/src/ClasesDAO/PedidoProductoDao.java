@@ -1,4 +1,4 @@
-package ClasesDao;
+package ClasesDAO;
 
 public class PedidoProductoDao {
 
