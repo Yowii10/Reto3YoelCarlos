@@ -2,6 +2,7 @@ package Main;
 
 import java.util.Scanner;
 
+import ClasesDAO.ClientesDAO;
 import Util.Funciones;
 
 public class MainReto {
@@ -133,7 +134,7 @@ public class MainReto {
 			
 			switch (guardado) {
 			case 1:
-				
+				ClientesDAO.selccionar(pedido(sc));
 				break;
 			case 2:
 				
@@ -174,5 +175,12 @@ public class MainReto {
 			}
 			
 		}while(guardado!=0);
+	}
+	
+	public static int pedido(Scanner sc) {
+
+		int guardadoCodCliente = Funciones.dimeEntero("Introduce el codigo de un cliente", sc);
+		return  guardadoCodCliente;
+
 	}
 }

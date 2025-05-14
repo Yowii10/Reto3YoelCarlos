@@ -45,5 +45,14 @@ public class Clientes {
 		this.nombre = nombre;
 		this.direccion = direccion;
 	}
+
+	public Clientes(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+	
+	public void añadir(Clientes cliente) {
+		
+	}
 	
 }
