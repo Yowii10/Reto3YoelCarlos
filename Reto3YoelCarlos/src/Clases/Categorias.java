@@ -24,10 +24,7 @@ public class Categorias {
 	public Categorias() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Categorias [Idcategoria=" + idCategoria + ", Nombre=" + Nombre + "]";
-	}
+	
 	
 	
 
