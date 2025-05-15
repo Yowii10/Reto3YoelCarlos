@@ -55,8 +55,6 @@ public class Clientes {
 	public String toString() {
 		return "Clientes [codCliente=" + codCliente + ", idCliente=" + idCliente + ", nombre=" + nombre + ", direccion="
 				+ direccion ;
-	}
+	} 
 
-
-	
 }

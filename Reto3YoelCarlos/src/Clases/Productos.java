@@ -10,6 +10,7 @@ public class Productos {
 	private String talla;
 	private int stock;
 	
+	
 	protected int getIdProducto() {
 		return idProducto;
 	}
@@ -86,6 +87,6 @@ public class Productos {
 		this.talla = talla;
 		this.stock = stock;
 	}
-	
+	 
 	
 }

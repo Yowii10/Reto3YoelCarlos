@@ -190,8 +190,8 @@ public class MainReto {
 	}
 	
 	public static void pedirProductos(Scanner sc) {
-		do {
+		//do {
 		String nombre = Funciones.dimeString("Introduce el nombre de un producto", sc);
-		}while();
+		//}while();
 	}
 }

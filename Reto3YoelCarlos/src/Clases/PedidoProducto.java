@@ -3,6 +3,7 @@ package Clases;
 public class PedidoProducto {
 	private int idpedidoproducto, idpedido, idproducto, unidades; 
     private Double precio;
+    
 	public int getIdpedidoproducto() {
 		return idpedidoproducto;
 	}
@@ -49,7 +50,7 @@ public class PedidoProducto {
 		return "PedidoProducto [idpedidoproducto=" + idpedidoproducto + ", idpedido=" + idpedido + ", idproducto="
 				+ idproducto + ", unidades=" + unidades + ", precio=" + precio + "]";
 	}
-    
+     
     
 
 }
