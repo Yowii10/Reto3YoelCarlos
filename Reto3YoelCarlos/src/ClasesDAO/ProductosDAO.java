@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import Clases.Clientes;
 import Clases.Productos;
 import Util.Conexion;
 
@@ -20,7 +21,7 @@ public class ProductosDAO {
 	            while (rs.next()) {
 	                productos.add(new Productos(
 	                    rs.getInt("idproducto"),
-	                    rs.getIdcategoria("idcategoria"),
+	                    rs.getInt("idcategoria"),
 	                    rs.getString("nombre"),
 	                    rs.getDouble("precio"),
 	                    rs.getString("descripcion"),
@@ -39,7 +40,7 @@ public class ProductosDAO {
 	        try (Connection con = Conexion.abreConexion()) {
 	           
 	            PreparedStatement ps = con.prepareStatement("INSERT INTO productos (idcategoria, nombre, precio, descripcion, color, talla, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	            ps.setInt(1, producto.getIdProducto());
+	            ps.setInt(1, producto.getIdCategoria());
 	            ps.setString(2, producto.getNombre());
 	            ps.setDouble(3, producto.getPrecio());
 	            ps.setString(4, producto.getDescripcion());
@@ -52,5 +53,29 @@ public class ProductosDAO {
 	            return false;
 	        }
 	    }
-	
+	    public static Productos seleccionarProducto(String guardadoNombreProducto) {
+	    	Productos producto = null;
+			try {
+			Connection con = Conexion.abreConexion();
+			PreparedStatement pst = con.prepareStatement("SELECT nombre FROM productos\n"
+					+ "WHERE nombre = ?;");
+			pst.setString(1, guardadoNombreProducto); 
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()){
+				//creo objeto asignatura y lo a�ado a la lista
+				producto= new Productos(rs.getString("nombre"));
+			}
+			rs.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			Conexion.cierraConexion();
+		}
+		return producto;
+	}
+	   
+	    
 }
+
+
