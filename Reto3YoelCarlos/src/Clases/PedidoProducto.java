@@ -50,7 +50,7 @@ public class PedidoProducto {
 		return "PedidoProducto [idpedidoproducto=" + idpedidoproducto + ", idpedido=" + idpedido + ", idproducto="
 				+ idproducto + ", unidades=" + unidades + ", precio=" + precio + "]";
 	}
-    
+     
     
 
 }

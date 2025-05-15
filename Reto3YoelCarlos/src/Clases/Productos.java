@@ -87,6 +87,6 @@ public class Productos {
 		this.talla = talla;
 		this.stock = stock;
 	}
-	
+	 
 	
 }
