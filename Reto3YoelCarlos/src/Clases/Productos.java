@@ -2,7 +2,7 @@ package Clases;
 
 public class Productos {
 	private int idProducto;
-	private Categorias idCategoria;
+	private int idCategoria;
 	private String nombre;
 	private double precio;
 	private String descripcion;
@@ -19,11 +19,11 @@ public class Productos {
 		this.idProducto = idProducto;
 	}
 	
-	public Categorias getIdCategoria() {
+	public int getIdCategoria() {
 		return idCategoria;
 	}
 	
-	public void setIdCategoria(Categorias idCategoria) {
+	public void setIdCategoria(int idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 	
@@ -75,7 +75,7 @@ public class Productos {
 		this.stock = stock;
 	}
 
-	public Productos(int idProducto, Categorias idCategoria, String nombre, double precio, String descripcion,
+	public Productos(int idProducto, int idCategoria, String nombre, double precio, String descripcion,
 			String color, String talla, int stock) {
 		super();
 		this.idProducto = idProducto;
