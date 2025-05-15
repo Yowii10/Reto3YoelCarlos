@@ -2,6 +2,7 @@ package Main;
 
 import java.util.Scanner;
 
+import Clases.Clientes;
 import ClasesDAO.ClientesDAO;
 import Util.Funciones;
 
@@ -134,7 +135,11 @@ public class MainReto {
 			
 			switch (guardado) {
 			case 1:
-				ClientesDAO.selccionar(pedido(sc));
+				int ncliente = pedido(sc);
+				Clientes clientes = new Clientes(null);
+				 clientes = ClientesDAO.selccionar(ncliente);
+			
+				System.out.println(clientes);
 				break;
 			case 2:
 				
@@ -182,5 +187,11 @@ public class MainReto {
 		int guardadoCodCliente = Funciones.dimeEntero("Introduce el codigo de un cliente", sc);
 		return  guardadoCodCliente;
 
+	}
+	
+	public static void pedirProductos(Scanner sc) {
+		do {
+		String nombre = Funciones.dimeString("Introduce el nombre de un producto", sc);
+		}while();
 	}
 }

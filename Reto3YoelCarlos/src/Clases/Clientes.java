@@ -51,8 +51,12 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 	
-	public void añadir(Clientes cliente) {
-		
+	@Override
+	public String toString() {
+		return "Clientes [codCliente=" + codCliente + ", idCliente=" + idCliente + ", nombre=" + nombre + ", direccion="
+				+ direccion ;
 	}
+
+
 	
 }
