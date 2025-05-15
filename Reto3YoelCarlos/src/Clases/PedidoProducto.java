@@ -3,6 +3,7 @@ package Clases;
 public class PedidoProducto {
 	private int idpedidoproducto, idpedido, idproducto, unidades; 
     private Double precio;
+    
 	public int getIdpedidoproducto() {
 		return idpedidoproducto;
 	}

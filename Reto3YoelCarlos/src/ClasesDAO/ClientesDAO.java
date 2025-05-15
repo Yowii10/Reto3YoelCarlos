@@ -21,7 +21,7 @@ public class ClientesDAO {
 		pst.setInt(1, guardadoCodCliente); 
 		ResultSet rs = pst.executeQuery();
 		while(rs.next()){
-			//creo objeto asignatura y lo aÃ±ado a la lista
+			//creo objeto asignatura y lo añado a la lista
 			cliente= new Clientes(rs.getString("nombre"));
 		}
 		rs.close();

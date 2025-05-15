@@ -10,6 +10,7 @@ public class Productos {
 	private String talla;
 	private int stock;
 	
+	
 	protected int getIdProducto() {
 		return idProducto;
 	}

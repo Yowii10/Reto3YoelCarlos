@@ -51,8 +51,6 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 	
-	public void añadir(Clientes cliente) {
-		
-	}
+	
 	
 }

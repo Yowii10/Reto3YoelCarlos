@@ -1,13 +1,14 @@
 package Clases;
 
 public class Categorias {
-	private int Idcategoria;
+	private int idCategoria;
 	private String Nombre;
+	
 	public int getIdcategoria() {
-		return Idcategoria;
+		return idCategoria;
 	}
 	public void setIdcategoria(int idcategoria) {
-		Idcategoria = idcategoria;
+		idCategoria = idcategoria;
 	}
 	public String getNombre() {
 		return Nombre;
@@ -17,7 +18,7 @@ public class Categorias {
 	}
 	public Categorias(int idcategoria, String nombre) {
 		super();
-		Idcategoria = idcategoria;
+		idCategoria = idcategoria;
 		Nombre = nombre;
 	}
 	public Categorias() {
@@ -25,7 +26,7 @@ public class Categorias {
 	}
 	@Override
 	public String toString() {
-		return "Categorias [Idcategoria=" + Idcategoria + ", Nombre=" + Nombre + "]";
+		return "Categorias [Idcategoria=" + idCategoria + ", Nombre=" + Nombre + "]";
 	}
 	
 	
