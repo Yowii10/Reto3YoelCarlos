@@ -9,43 +9,43 @@ public class Pedidos {
 	private String direccion;
 	private Date fecha;
 	
-	protected int getIdPedido() {
+	public int getIdPedido() {
 		return idPedido;
 	}
 	
-	protected void setIdPedido(int idPedido) {
+	public void setIdPedido(int idPedido) {
 		this.idPedido = idPedido;
 	}
 	
-	protected Clientes getIdCliente() {
+	public Clientes getIdCliente() {
 		return idCliente;
 	}
 	
-	protected void setIdCliente(Clientes idCliente) {
+	public void setIdCliente(Clientes idCliente) {
 		this.idCliente = idCliente;
 	}
 	
-	protected double getPrecioTotal() {
+	public double getPrecioTotal() {
 		return precioTotal;
 	}
 	
-	protected void setPrecioTotal(double precioTotal) {
+	public void setPrecioTotal(double precioTotal) {
 		this.precioTotal = precioTotal;
 	}
 	
-	protected String getDireccion() {
+	public String getDireccion() {
 		return direccion;
 	}
 	
-	protected void setDireccion(String direccion) {
+	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 	
-	protected Date getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 	
-	protected void setFecha(Date fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

@@ -11,51 +11,51 @@ public class Productos {
 	private int stock;
 	
 	
-	protected int getIdProducto() {
+	public int getIdProducto() {
 		return idProducto;
 	}
 	
-	protected void setIdProducto(int idProducto) {
+	public void setIdProducto(int idProducto) {
 		this.idProducto = idProducto;
 	}
 	
-	protected Categorias getIdCategoria() {
+	public Categorias getIdCategoria() {
 		return idCategoria;
 	}
 	
-	protected void setIdCategoria(Categorias idCategoria) {
+	public void setIdCategoria(Categorias idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 	
-	protected String getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 	
-	protected void setNombre(String nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	protected double getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 	
-	protected void setPrecio(double precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 	
-	protected String getDescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 	
-	protected void setDescripcion(String descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 	
-	protected String getColor() {
+	public String getColor() {
 		return color;
 	}
 	
-	protected void setColor(String color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 	
