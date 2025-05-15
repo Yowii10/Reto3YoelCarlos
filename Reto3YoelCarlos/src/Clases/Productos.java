@@ -59,19 +59,19 @@ public class Productos {
 		this.color = color;
 	}
 	
-	protected String getTalla() {
+	public String getTalla() {
 		return talla;
 	}
 	
-	protected void setTalla(String talla) {
+	public void setTalla(String talla) {
 		this.talla = talla;
 	}
 	
-	protected int getStock() {
+	public int getStock() {
 		return stock;
 	}
 	
-	protected void setStock(int stock) {
+	public void setStock(int stock) {
 		this.stock = stock;
 	}
 

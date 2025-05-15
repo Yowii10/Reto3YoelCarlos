@@ -20,7 +20,7 @@ public class ProductosDAO {
 	            while (rs.next()) {
 	                productos.add(new Productos(
 	                    rs.getInt("idproducto"),
-	                    rs.get("idcategoria"),
+	                    rs.getIdcategoria("idcategoria"),
 	                    rs.getString("nombre"),
 	                    rs.getDouble("precio"),
 	                    rs.getString("descripcion"),
@@ -39,7 +39,7 @@ public class ProductosDAO {
 	        try (Connection con = Conexion.abreConexion()) {
 	           
 	            PreparedStatement ps = con.prepareStatement("INSERT INTO productos (idcategoria, nombre, precio, descripcion, color, talla, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	            ps.setInt(1, producto.getidProducto());
+	            ps.setInt(1, producto.getIdProducto());
 	            ps.setString(2, producto.getNombre());
 	            ps.setDouble(3, producto.getPrecio());
 	            ps.setString(4, producto.getDescripcion());
