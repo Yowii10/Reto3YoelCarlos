@@ -1,7 +1,7 @@
 package Clases;
 
 public class Categorias {
-	private int Idcategoria;
+	private int idCategoria;
 	private String Nombre;
 	
 	public int getIdcategoria() {
