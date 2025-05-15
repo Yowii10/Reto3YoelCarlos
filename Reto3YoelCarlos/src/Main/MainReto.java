@@ -136,10 +136,8 @@ public class MainReto {
 			switch (guardado) {
 			case 1:
 				int ncliente = pedido(sc);
-				Clientes clientes = new Clientes(null);
-				 clientes = ClientesDAO.selccionar(ncliente);
-			
-				System.out.println(clientes);
+				 Clientes clientes = ClientesDAO.selccionar(ncliente);
+				System.out.println(clientes.getNombre());
 				break;
 			case 2:
 				

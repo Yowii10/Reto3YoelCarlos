@@ -6,35 +6,35 @@ public class Clientes {
 	private String nombre;
 	private String direccion;
 	
-	protected int getCodCliente() {
+	public int getCodCliente() {
 		return codCliente;
 	}
 	
-	protected void setCodCliente(int codCliente) {
+	public void setCodCliente(int codCliente) {
 		this.codCliente = codCliente;
 	}
 	
-	protected int getIdCliente() {
+	public int getIdCliente() {
 		return idCliente;	
 	}
 	
-	protected void setIdCliente(int idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 	
-	protected String getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 	
-	protected void setNombre(String nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	protected String getDireccion() {
+	public String getDireccion() {
 		return direccion;
 	}
 	
-	protected void setDireccion(String direccion) {
+	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
