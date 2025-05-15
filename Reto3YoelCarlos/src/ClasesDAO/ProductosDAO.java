@@ -61,7 +61,7 @@ public class ProductosDAO {
 			pst.setString(1, guardadoNombreProducto); 
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
-				//creo objeto asignatura y lo a�ado a la lista
+			
 				producto= new Productos(rs.getString("nombre"));
 			}
 			rs.close();
