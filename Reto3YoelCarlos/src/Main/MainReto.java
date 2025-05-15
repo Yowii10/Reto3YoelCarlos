@@ -3,6 +3,7 @@ package Main;
 import java.util.Scanner;
 
 import Clases.Clientes;
+import Clases.Pedidos;
 import Clases.Productos;
 import ClasesDAO.ClientesDAO;
 import ClasesDAO.ProductosDAO;
@@ -191,6 +192,7 @@ public class MainReto {
 	
 	public static void pedirProductos(Scanner sc) {
 		String nombre;
+		Pedidos pedido = new Pedidos(0, null, 0, nombre, null);
 		do {
 			nombre = Funciones.dimeString("Introduce el nombre de un producto", sc);
 		}while(ProductosDAO.seleccionarProducto(nombre)==null);

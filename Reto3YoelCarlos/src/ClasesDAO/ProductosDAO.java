@@ -57,12 +57,11 @@ public class ProductosDAO {
 	    	Productos producto = null;
 			try {
 			Connection con = Conexion.abreConexion();
-			PreparedStatement pst = con.prepareStatement("SELECT nombre FROM productos\n"
+			PreparedStatement pst = con.prepareStatement("SELECT * FROM productos\n"
 					+ "WHERE nombre = ?;");
 			pst.setString(1, guardadoNombreProducto); 
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
-				//creo objeto asignatura y lo a�ado a la lista
 				producto= new Productos(rs.getString("nombre"));
 			}
 			rs.close();
@@ -75,7 +74,6 @@ public class ProductosDAO {
 		return producto;
 	}
 	   
-	    
 }
 
 
