@@ -25,7 +25,4 @@ public class Categorias {
 		super();
 	}
 	
-	
-	
-
 }
