@@ -30,7 +30,7 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 	
-	public String getDireccion() {
+	public void  String getDireccion() {
 		return direccion;
 	}
 	
