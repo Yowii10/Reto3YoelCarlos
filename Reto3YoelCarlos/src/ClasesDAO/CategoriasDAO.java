@@ -9,7 +9,7 @@ import java.util.List;
 import Clases.Categorias;
 import Util.Conexion;
 
-public class CategoriasDao {
+public class CategoriasDAO {
 	  public static List<Categorias> obtenerCategorias() {
 	        List<Categorias> categorias = new ArrayList<>();
 	        try (Connection con = Conexion.abreConexion()) {

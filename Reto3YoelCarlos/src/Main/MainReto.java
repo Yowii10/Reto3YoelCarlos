@@ -191,7 +191,7 @@ public class MainReto {
 	}
 	
 	public static void pedirProductos(Scanner sc) {
-		String nombre;
+		String nombre = null;
 		Pedidos pedido = new Pedidos(0, null, 0, nombre, null);
 		do {
 			nombre = Funciones.dimeString("Introduce el nombre de un producto", sc);
