@@ -82,7 +82,7 @@ public class ClientesDAO {
     public static boolean actualizarCliente(Clientes cliente) {
         try (Connection con = Conexion.abreConexion()) {
             PreparedStatement ps = con.prepareStatement(
-                "UPDATE clientes SET nombre = ?, direccion = ?, codigo = ? WHERE idcliente = ?");
+                "UPDATE clientes SET precioTotal = ?, direccion = ?, codigo = ? WHERE idcliente = ?");
             ps.setString(1, cliente.getNombre());
             ps.setString(2, cliente.getDireccion());
             ps.setInt(3, cliente.getCodCliente());

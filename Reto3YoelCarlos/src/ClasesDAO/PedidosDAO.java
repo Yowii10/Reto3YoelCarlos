@@ -4,6 +4,8 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import Clases.Clientes;
 import Clases.Pedidos;
 import Util.Conexion;
 
@@ -140,59 +142,18 @@ public class PedidosDAO {
         }
         return pedido;
     }
-    public static boolean actualizarPedido(Pedidos pedido) {
-        Connection con = null;
-        try {
-            con = Conexion.abreConexion();
-            con.setAutoCommit(false); // Iniciar transacción
-
-            // 1. Actualizar los datos básicos del pedido
-            String sql = "UPDATE pedidos SET idcliente = ?, direccionEnvio = ?, fecha = ? WHERE idpedido = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            
-            ps.setInt(1, pedido.getIdCliente());
+    public static boolean actualizarPedidos(Pedidos pedido) {
+        try (Connection con = Conexion.abreConexion()) {
+            PreparedStatement ps = con.prepareStatement(
+                "UPDATE pedidos SET nombre = ?, direccion = ?, idPedido = ? WHERE idcliente = ?");
+            ps.setInt(1, pedido.getIdPedido());
             ps.setString(2, pedido.getDireccion());
-            ps.setDate(3, java.sql.Date.valueOf(pedido.getFecha()));
-            ps.setInt(4, pedido.getIdPedido());
-            
-            int filasActualizadas = ps.executeUpdate();
-            
-            if (filasActualizadas == 0) {
-                con.rollback();
-                return false; // No se encontró el pedido a actualizar
-            }
-
-            // 2. Recalcular el precio total basado en los productos actuales
-            double nuevoTotal = PedidoProductoDAO.calcularTotalPedido(pedido.getIdPedido());
-            
-            // 3. Actualizar el precio total del pedido
-            sql = "UPDATE pedidos SET precioTotal = ? WHERE idpedido = ?";
-            ps = con.prepareStatement(sql);
-            ps.setDouble(1, nuevoTotal);
-            ps.setInt(2, pedido.getIdPedido());
-            ps.executeUpdate();
-            
-            con.commit();
-            return true;
+            ps.setDate(3, pedido.getFecha());
+            ps.setInt(4, pedido.getIdCliente());
+            return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            if (con != null) {
-                try {
-                    con.rollback();
-                } catch (SQLException ex) {
-                    System.err.println("Error al hacer rollback: " + ex.getMessage());
-                }
-            }
-            System.err.println("Error al actualizar pedido: " + e.getMessage());
+            System.err.println("Error al actualizar cliente: " + e.getMessage());
             return false;
-        } finally {
-            if (con != null) {
-                try {
-                    con.setAutoCommit(true);
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("Error al cerrar conexión: " + e.getMessage());
-                }
-            }
         }
     }
 }
