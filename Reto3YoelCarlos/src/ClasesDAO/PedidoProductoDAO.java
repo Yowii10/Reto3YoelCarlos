@@ -40,14 +40,17 @@ public class PedidoProductoDAO {
         }
     }
 
-    private static int obtenerStockProducto(int idProducto) throws SQLException {
+    private static int obtenerStockProducto(int idProducto) {
         try (Connection con = Conexion.abreConexion()) {
             PreparedStatement ps = con.prepareStatement(
                 "SELECT stock FROM productos WHERE idproducto = ?");
             ps.setInt(1, idProducto);
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("stock") : 0;
-        }
+        }catch (Exception e) {
+			System.out.println("Formato incorrecto");
+		}
+		return idProducto;
     }
 
     public static List<PedidoProducto> obtenerProductosPorPedido(int idPedido) {
@@ -68,12 +71,10 @@ public class PedidoProductoDAO {
                     rs.getInt("idpedido"),
                     rs.getInt("idproducto"),
                     rs.getInt("unidades"),
-                    rs.getDouble("precio"),
-                    rs.getString("nombre_producto"),
-                    rs.getString("nombre_categoria")
+                    rs.getDouble("precio")
                 ));
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println("Error al obtener productos del pedido: " + e.getMessage());
         }
         return productos;

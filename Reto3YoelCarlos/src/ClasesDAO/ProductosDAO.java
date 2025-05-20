@@ -25,11 +25,10 @@ public class ProductosDAO {
                     rs.getString("descripcion"),
                     rs.getString("color"),
                     rs.getString("talla"),
-                    rs.getInt("stock"),
-                    rs.getString("nombre_categoria")
+                    rs.getInt("stock")
                 ));
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println("Error al obtener productos: " + e.getMessage());
         }
         return productos;
@@ -97,7 +96,7 @@ public class ProductosDAO {
                     rs.getInt("stock")
                 ));
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println("Error al buscar productos: " + e.getMessage());
         }
         return productos;
@@ -110,7 +109,7 @@ public class ProductosDAO {
             ps.setInt(1, cantidad);
             ps.setInt(2, idProducto);
             return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.err.println("Error al actualizar stock: " + e.getMessage());
             return false;
         }

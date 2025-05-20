@@ -1,6 +1,6 @@
 package Main;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import Clases.*;
@@ -184,8 +184,9 @@ public class SistemaGestionPedidos {
         }
 
         // Crear el pedido
-        Pedidos nuevoPedido = new Pedidos(0, cliente.getIdCliente(), 0.0, 
-                                        cliente.getDireccion(), LocalDate.now());
+        Pedidos nuevoPedido = null ;
+        nuevoPedido= new Pedidos(0, cliente.getIdCliente(), 0.0, 
+                                        cliente.getDireccion(), nuevoPedido.getFecha() );
         
         if (!PedidosDAO.insertarPedido(nuevoPedido)) {
             System.out.println("Error al crear el pedido.");

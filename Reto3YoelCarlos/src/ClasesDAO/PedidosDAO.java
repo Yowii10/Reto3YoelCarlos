@@ -8,6 +8,7 @@ import java.util.List;
 import Clases.Clientes;
 import Clases.Pedidos;
 import Util.Conexion;
+import Util.Funciones;
 
 public class PedidosDAO {
     
@@ -24,7 +25,7 @@ public class PedidosDAO {
             ps.setInt(1, pedido.getIdCliente());
             ps.setDouble(2, pedido.getPrecioTotal());
             ps.setString(3, pedido.getDireccion());
-            ps.setDate(4, java.sql.Date.valueOf(pedido.getFecha()));
+            ps.setDate(4, Funciones.convierteFecha(pedido.getFecha()));
             
             int affectedRows = ps.executeUpdate();
             if (affectedRows == 0) {
@@ -42,11 +43,11 @@ public class PedidosDAO {
 
             con.commit();
             return true;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             if (con != null) {
                 try {
                     con.rollback();
-                } catch (SQLException ex) {
+                } catch (Exception ex) {
                     System.err.println("Error al hacer rollback: " + ex.getMessage());
                 }
             }
@@ -57,7 +58,7 @@ public class PedidosDAO {
                 try {
                     con.setAutoCommit(true);
                     con.close();
-                } catch (SQLException e) {
+                } catch (Exception e) {
                     System.err.println("Error al cerrar conexión: " + e.getMessage());
                 }
             }
@@ -76,8 +77,8 @@ public class PedidosDAO {
                 "JOIN clientes c ON p.idcliente = c.idcliente " +
                 "WHERE p.fecha BETWEEN ? AND ? " +
                 "ORDER BY p.fecha DESC");
-            ps.setDate(1, java.sql.Date.valueOf(startOfMonth));
-            ps.setDate(2, java.sql.Date.valueOf(endOfMonth));
+            ps.setDate(1, Date.valueOf(startOfMonth));
+            ps.setDate(2, Date.valueOf(endOfMonth));
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -86,7 +87,7 @@ public class PedidosDAO {
                     rs.getInt("idcliente"),
                     rs.getDouble("precioTotal"),
                     rs.getString("direccionEnvio"),
-                    rs.getDate("fecha").toLocalDate()
+                    rs.getDate("fecha")
                 ));
             }
         } catch (SQLException e) {
@@ -109,7 +110,7 @@ public class PedidosDAO {
                     rs.getInt("idcliente"),
                     rs.getDouble("precioTotal"),
                     rs.getString("direccionEnvio"),
-                    rs.getDate("fecha").toLocalDate()
+                    rs.getDate("fecha")
                 ));
             }
         } catch (SQLException e) {
@@ -134,7 +135,7 @@ public class PedidosDAO {
                     rs.getInt("idcliente"),
                     rs.getDouble("precioTotal"),
                     rs.getString("direccionEnvio"),
-                    rs.getDate("fecha").toLocalDate()
+                    rs.getDate("fecha")
                 );
             }
         } catch (SQLException e) {
@@ -148,7 +149,7 @@ public class PedidosDAO {
                 "UPDATE pedidos SET nombre = ?, direccion = ?, idPedido = ? WHERE idcliente = ?");
             ps.setInt(1, pedido.getIdPedido());
             ps.setString(2, pedido.getDireccion());
-            ps.setDate(3, pedido.getFecha());
+            ps.setDate(3, Funciones.convierteFecha(pedido.getFecha()));
             ps.setInt(4, pedido.getIdCliente());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {

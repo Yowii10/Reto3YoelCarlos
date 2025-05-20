@@ -1,6 +1,5 @@
 package Clases;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Pedidos {
@@ -8,7 +7,7 @@ public class Pedidos {
 	private int idCliente;
 	private double precioTotal;
 	private String direccion;
-	private LocalDate fecha;
+	private Date fecha;
 	
 	public int getIdPedido() {
 		return idPedido;
@@ -42,15 +41,15 @@ public class Pedidos {
 		this.direccion = direccion;
 	}
 	
-	public LocalDate getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 	
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
-	public Pedidos(int idPedido, int idCliente, double precioTotal, String direccion, LocalDate fecha) {
+	public Pedidos(int idPedido, int idCliente, double precioTotal, String direccion, Date fecha) {
 		super();
 		this.idPedido = idPedido;
 		this.idCliente = idCliente;
