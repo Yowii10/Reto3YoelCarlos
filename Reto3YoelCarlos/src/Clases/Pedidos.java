@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Pedidos {
 	private int idPedido;
-	private Clientes idCliente;
+	private int idCliente;
 	private double precioTotal;
 	private String direccion;
 	private LocalDate fecha;
@@ -18,11 +18,11 @@ public class Pedidos {
 		this.idPedido = idPedido;
 	}
 	
-	public Clientes getIdCliente() {
+	public int getIdCliente() {
 		return idCliente;
 	}
 	
-	public void setIdCliente(Clientes idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 	
@@ -50,7 +50,7 @@ public class Pedidos {
 		this.fecha = fecha;
 	}
 
-	public Pedidos(int idPedido, Clientes idCliente, double precioTotal, String direccion, LocalDate fecha) {
+	public Pedidos(int idPedido, int idCliente, double precioTotal, String direccion, LocalDate fecha) {
 		super();
 		this.idPedido = idPedido;
 		this.idCliente = idCliente;

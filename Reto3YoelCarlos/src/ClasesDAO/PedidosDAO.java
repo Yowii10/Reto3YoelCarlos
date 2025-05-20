@@ -84,8 +84,7 @@ public class PedidosDAO {
                     rs.getInt("idcliente"),
                     rs.getDouble("precioTotal"),
                     rs.getString("direccionEnvio"),
-                    rs.getDate("fecha").toLocalDate(),
-                    rs.getString("nombre_cliente")
+                    rs.getDate("fecha").toLocalDate()
                 ));
             }
         } catch (SQLException e) {
@@ -133,8 +132,7 @@ public class PedidosDAO {
                     rs.getInt("idcliente"),
                     rs.getDouble("precioTotal"),
                     rs.getString("direccionEnvio"),
-                    rs.getDate("fecha").toLocalDate(),
-                    rs.getString("nombre_cliente")
+                    rs.getDate("fecha").toLocalDate()
                 );
             }
         } catch (SQLException e) {
