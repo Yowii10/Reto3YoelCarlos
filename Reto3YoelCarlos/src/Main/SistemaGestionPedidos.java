@@ -239,10 +239,10 @@ public class SistemaGestionPedidos {
                 System.out.println("Producto agregado al pedido.");
             } else {
                 System.out.println("Error al agregar el producto al pedido.");
-            }
+            }}
         }
         
-        // Calcular y actualizar el total del pedido
+      /*  // Calcular y actualizar el total del pedido
         double total = PedidoProductoDAO.calcularTotalPedido(idPedido);
         if (PedidosDAO.actualizarTotalPedido(idPedido, total)) {
             System.out.println("\nPedido completado exitosamente!");
@@ -251,7 +251,7 @@ public class SistemaGestionPedidos {
         } else {
             System.out.println("Error al actualizar el total del pedido.");
         }
-    }
+    }*/
 
     private static int obtenerUltimoIdPedido() {
         List<Pedidos> pedidos = PedidosDAO.obtenerPedidosDelMes();
