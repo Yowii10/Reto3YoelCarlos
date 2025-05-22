@@ -249,6 +249,7 @@ public class SistemaGestionPedidos {
     private static int obtenerUltimoIdPedido() {
         List<Pedidos> pedidos = PedidosDAO.obtenerPedidosDelMes();
         return pedidos.isEmpty() ? 0 : pedidos.get(0).getIdPedido();
+        
     }
 
     private static void verPedidos() {
