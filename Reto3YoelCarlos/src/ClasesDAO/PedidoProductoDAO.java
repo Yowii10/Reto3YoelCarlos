@@ -4,7 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import Clases.PedidoProducto;
+import Clases.Pedidos;
 import Util.Conexion;
+import Util.Funciones;
 
 public class PedidoProductoDAO {
     
@@ -96,7 +98,16 @@ public class PedidoProductoDAO {
         return total;
     }
     
-    public static double guardarPrecioTotal() {
-    	
+    public static boolean guardarPrecioTotal(Pedidos pedido) {
+            try (Connection con = Conexion.abreConexion()) {
+                PreparedStatement ps = con.prepareStatement(
+                		"UPDATE pedidos SET precioTotal = ? WHERE (idpedido = ?)");
+                ps.setDouble(1, pedido.getPrecioTotal());
+                ps.setInt(2, pedido.getIdPedido());
+                return ps.executeUpdate() > 0;
+            } catch (SQLException e) {
+                System.err.println("Error al actualizar el precio total: " + e.getMessage());
+                return false;
+            }
+        }
     }
-}
