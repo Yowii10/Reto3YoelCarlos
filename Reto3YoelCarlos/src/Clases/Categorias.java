@@ -16,6 +16,11 @@ public class Categorias {
 	public void setNombre(String nombre) {
 		Nombre = nombre;
 	}
+	/**
+	 * 
+	 * @param idcategoria int
+	 * @param nombre str
+	 */
 	public Categorias(int idcategoria, String nombre) {
 		super();
 		idCategoria = idcategoria;
