@@ -30,7 +30,7 @@ public class PedidosDAO {
             
             int affectedRows = ps.executeUpdate();
             if (affectedRows == 0) {
-                throw new SQLException("No se pudo insertar el pedido");
+               return false;
             }
 
             // Obtener el ID generado
@@ -38,8 +38,7 @@ public class PedidosDAO {
                 if (generatedKeys.next()) {
                     pedido.setIdPedido(generatedKeys.getInt(1));
                 } else {
-                    throw new SQLException("No se obtuvo el ID del pedido");
-                }
+                	return false;                }
             }
 
             con.commit();

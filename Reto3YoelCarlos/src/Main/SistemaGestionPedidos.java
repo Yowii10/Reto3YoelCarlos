@@ -252,7 +252,6 @@ public class SistemaGestionPedidos {
     }
 
     private static void verPedidos() {
-    	PedidoProducto p1 = new PedidoProducto();
         System.out.println("\n=== LISTADO DE PEDIDOS ===");
         List<Pedidos> pedidos = PedidosDAO.obtenerPedidosDelMes();
         
@@ -271,9 +270,8 @@ public class SistemaGestionPedidos {
             List<PedidoProducto> productos = PedidoProductoDAO.obtenerProductosPorPedido(p.getIdPedido());
             for (PedidoProducto pp : productos) {
                 Productos producto = ProductosDAO.buscarPorId(pp.getIdproducto());
-                System.out.println("- " + producto.getNombre() + 
-                                 " x" + pp.getUnidades() + 
-                                 " a " + PedidoProductoDAO.guardarPrecioTotal(p) + " c/u");
+                PedidoProductoDAO.calcularTotalPedido(p);
+                System.out.println("- " + producto.getNombre() +  " x" + pp.getUnidades() +  " a " + p.getPrecioTotal() + " c/u");
             }
             System.out.println("-----------------------");
         }

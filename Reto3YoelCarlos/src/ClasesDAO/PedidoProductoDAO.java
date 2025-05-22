@@ -82,12 +82,12 @@ public class PedidoProductoDAO {
         return productos;
     }
 
-    public static double calcularTotalPedido(int idPedido) {
+    public static double calcularTotalPedido(Pedidos pedido) {
         double total = 0.0;
         try (Connection con = Conexion.abreConexion()) {
             PreparedStatement ps = con.prepareStatement(
                 "SELECT SUM(precio * unidades) as total FROM pedidoproducto WHERE idpedido = ?");
-            ps.setInt(1, idPedido);
+            ps.setInt(1, pedido.getIdPedido());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 total = rs.getDouble("total");
@@ -98,16 +98,17 @@ public class PedidoProductoDAO {
         return total;
     }
     
-    public static boolean guardarPrecioTotal(Pedidos pedido) {
+    public static void guardarPrecioTotal(Pedidos pedido) {
+    	double total = 0.0;
             try (Connection con = Conexion.abreConexion()) {
                 PreparedStatement ps = con.prepareStatement(
                 		"UPDATE pedidos SET precioTotal = ? WHERE (idpedido = ?)");
                 ps.setDouble(1, pedido.getPrecioTotal());
                 ps.setInt(2, pedido.getIdPedido());
-                return ps.executeUpdate() > 0;
+                ps.executeUpdate();
             } catch (SQLException e) {
                 System.err.println("Error al actualizar el precio total: " + e.getMessage());
-                return false;
+                
             }
         }
     }
