@@ -2,6 +2,7 @@ package ClasesDAO;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,9 +68,11 @@ public class PedidosDAO {
 
     public static List<Pedidos> obtenerPedidosDelMes() {
         List<Pedidos> pedidos = new ArrayList<>();
-        LocalDate now = LocalDate.now();
-        LocalDate startOfMonth = now.withDayOfMonth(1);
-        LocalDate endOfMonth = now.withDayOfMonth(now.lengthOfMonth());
+        LocalDate id = LocalDate.now();
+        LocalDate startOfMonth = id.withDayOfMonth(1);
+        LocalDate endOfMonth = id.withDayOfMonth(id.lengthOfMonth());
+        
+        System.out.println(id.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
         try (Connection con = Conexion.abreConexion()) {
             PreparedStatement ps = con.prepareStatement(

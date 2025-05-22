@@ -1,5 +1,7 @@
 package Main;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -184,9 +186,10 @@ public class SistemaGestionPedidos {
         }
 
         // Crear el pedido
-        Pedidos nuevoPedido = null ;
-        nuevoPedido= new Pedidos(0, cliente.getIdCliente(), 0.0, 
-                                        cliente.getDireccion(), nuevoPedido.getFecha() );
+        LocalDate fecha = LocalDate.now();
+        Date fecha1 = Funciones.convierte_LocalDate_a_Date(fecha);
+        Pedidos nuevoPedido = new Pedidos(0, cliente.getIdCliente(), 0.0, 
+                                        cliente.getDireccion(), Funciones.convierteFecha(fecha1));
         
         if (!PedidosDAO.insertarPedido(nuevoPedido)) {
             System.out.println("Error al crear el pedido.");
@@ -243,17 +246,6 @@ public class SistemaGestionPedidos {
             }}
         }
         
-      /*  // Calcular y actualizar el total del pedido
-        double total = PedidoProductoDAO.calcularTotalPedido(idPedido);
-        if (PedidosDAO.actualizarTotalPedido(idPedido, total)) {
-            System.out.println("\nPedido completado exitosamente!");
-            System.out.println("Número de pedido: " + idPedido);
-            System.out.println("Total: " + total);
-        } else {
-            System.out.println("Error al actualizar el total del pedido.");
-        }
-    }*/
-
     private static int obtenerUltimoIdPedido() {
         List<Pedidos> pedidos = PedidosDAO.obtenerPedidosDelMes();
         return pedidos.isEmpty() ? 0 : pedidos.get(0).getIdPedido();
@@ -270,7 +262,7 @@ public class SistemaGestionPedidos {
 
         for (Pedidos p : pedidos) {
             System.out.println("\nPedido #" + p.getIdPedido());
-            System.out.println("Fecha: " + p.getFecha());
+            System.out.println("Fecha: " + Funciones.convierte_Date_a_String(p.getFecha()));
             System.out.println("Cliente ID: " + p.getIdCliente());
             System.out.println("Total: " + p.getPrecioTotal());
             

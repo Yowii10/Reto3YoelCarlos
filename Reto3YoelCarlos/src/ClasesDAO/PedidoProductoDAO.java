@@ -95,4 +95,8 @@ public class PedidoProductoDAO {
         }
         return total;
     }
+    
+    public static double guardarPrecioTotal() {
+    	
+    }
 }
