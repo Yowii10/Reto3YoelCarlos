@@ -34,6 +34,14 @@ public class PedidoProducto {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
+	/**
+	 * 
+	 * @param idpedidoproducto int
+	 * @param idpedido int 
+	 * @param idproducto int 
+	 * @param unidades int 
+	 * @param precio Double
+	 */
 	public PedidoProducto(int idpedidoproducto, int idpedido, int idproducto, int unidades, Double precio) {
 		super();
 		this.idpedidoproducto = idpedidoproducto;

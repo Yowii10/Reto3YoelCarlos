@@ -48,7 +48,15 @@ public class Pedidos {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-
+	
+	/**
+	 * 
+	 * @param idPedido int
+	 * @param idCliente int 
+	 * @param precioTotal double
+	 * @param direccion String
+	 * @param fecha String
+	 */
 	public Pedidos(int idPedido, int idCliente, double precioTotal, String direccion, Date fecha) {
 		super();
 		this.idPedido = idPedido;

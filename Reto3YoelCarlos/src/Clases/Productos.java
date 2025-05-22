@@ -74,7 +74,18 @@ public class Productos {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-
+	
+	/**
+	 * 
+	 * @param idProducto int
+	 * @param idCategoria int
+	 * @param nombre String
+	 * @param precio double
+	 * @param descripcion String
+	 * @param color String
+	 * @param talla String
+	 * @param stock int
+	 */ 
 	public Productos(int idProducto, int idCategoria, String nombre, double precio, String descripcion,
 			String color, String talla, int stock) {
 		super();
